@@ -2,15 +2,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
 
+
 package com.mycompany.projetm3;
 
-/**
- *
- * @author Utilisateur
- */
+import javafx.application.Application;
+
 public class ProjetM3 {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+
+        // lancement de l'interface
+        Application.launch(InterfaceAtelier.class, args);
     }
 }
