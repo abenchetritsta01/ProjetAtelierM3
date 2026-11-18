@@ -17,12 +17,29 @@
         <exec.mainClass>com.mycompany.projetm3.ProjetM3</exec.mainClass>
     </properties>
 
+    
     <dependencies>
+        
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
             <version>25.0.5</version>
         </dependency>
+
+      
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>9.5.0</version>
+        </dependency>
+
+       
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+            <version>7.1.0</version>
+        </dependency>
     </dependencies>
+
 
 </project>
