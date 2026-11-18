@@ -10,52 +10,61 @@ package com.mycompany.projetm3.modeles;
  */
 public class Machine extends Equipement {
 
-    private String refMachine;
-    private String dMachine;
+    // refMachine et dMachine sont maintenant hérités de Equipement (refEquipement, dEquipement)
     private String type;
-    private float cout;
+    private float cout;   // coût horaire
     private float x;
     private float y;
-    private String etat;
+    private EtatMachine etat;
 
     public Machine() {
+        super();
+        this.etat = EtatMachine.DISPONIBLE;
     }
-    
+
     public Machine(String refMachine, String dMachine,
-               String type, float cout, float x, float y, String etat) {
-    super(); // récupère de la classe mère
-    this.refMachine = refMachine;
-    this.dMachine = dMachine;
-    this.type = type;
-    this.cout = cout;
-    this.x = x;
-    this.y = y;
-    this.etat = etat;
-}
+                   String type, float cout, float x, float y, EtatMachine etat) {
+        super(refMachine, dMachine);   // on transmet la référence et la désignation à la classe mère
+        this.type = type;
+        this.cout = cout;
+        this.x = x;
+        this.y = y;
+        this.etat = etat;
+    }
+
+    @Override
+    public float getCoutHoraire() {
+        return cout;
+    }
 
     public void afficheMachine() {
+        System.out.println("Machine " + getRefMachine() + " (" + getdMachine() + "), type = " + type
+                + ", coût horaire = " + cout + ", position = (" + x + ", " + y + "), état = " + etat);
     }
 
     public void modifierMachine() {
+        // à faire
     }
 
     public void supprimerMachine() {
+        // à faire
     }
+
     //getter et setter
     public String getRefMachine() {
-        return refMachine;
+        return getRefEquipement();
     }
 
     public void setRefMachine(String refMachine) {
-        this.refMachine = refMachine;
+        setRefEquipement(refMachine);
     }
 
     public String getdMachine() {
-        return dMachine;
+        return getdEquipement();
     }
 
     public void setdMachine(String dMachine) {
-        this.dMachine = dMachine;
+        setdEquipement(dMachine);
     }
 
     public String getType() {
@@ -89,9 +98,12 @@ public class Machine extends Equipement {
     public void setY(float y) {
         this.y = y;
     }
-    
-    public String getetat(){
-    return etat;
-} 
-    
+
+    public EtatMachine getEtat() {
+        return etat;
+    }
+
+    public void setEtat(EtatMachine etat) {
+        this.etat = etat;
+    }
 }

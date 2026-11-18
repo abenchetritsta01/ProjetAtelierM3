@@ -12,20 +12,29 @@ public class Operation {
 
     private String refOperation;
     private String dOperation;
-    private String refEquipement;
-    private float dureeOpreration;
+    private Equipement equipement;     // la machine ou le poste qui réalise l'opération
+    private float dureeOpreration;     // durée en heures
 
     public Operation() {
     }
-    public Operation(String refOperation, String dOperation,
-                 String refEquipement, float dureeOpreration) {
-    this.refOperation = refOperation;
-    this.dOperation = dOperation;
-    this.refEquipement = refEquipement;
-    this.dureeOpreration = dureeOpreration;
-}
-    //getter et setter
 
+    public Operation(String refOperation, String dOperation,
+                     Equipement equipement, float dureeOpreration) {
+        this.refOperation = refOperation;
+        this.dOperation = dOperation;
+        this.equipement = equipement;
+        this.dureeOpreration = dureeOpreration;
+    }
+
+    // Coût de l'opération = coût horaire de l'équipement x durée de l'opération
+    public float getCout() {
+        if (equipement == null) {
+            return 0;
+        }
+        return equipement.getCoutHoraire() * dureeOpreration;
+    }
+
+    //getter et setter
     public String getRefOperation() {
         return refOperation;
     }
@@ -42,12 +51,17 @@ public class Operation {
         this.dOperation = dOperation;
     }
 
-    public String getRefEquipement() {
-        return refEquipement;
+    public Equipement getEquipement() {
+        return equipement;
     }
 
-    public void setRefEquipement(String refEquipement) {
-        this.refEquipement = refEquipement;
+    public void setEquipement(Equipement equipement) {
+        this.equipement = equipement;
+    }
+
+    // Référence de l'équipement (comme dans la consigne)
+    public String getRefEquipement() {
+        return (equipement == null) ? null : equipement.getRefEquipement();
     }
 
     public float getDureeOpreration() {
@@ -57,5 +71,4 @@ public class Operation {
     public void setDureeOpreration(float dureeOpreration) {
         this.dureeOpreration = dureeOpreration;
     }
-    
 }

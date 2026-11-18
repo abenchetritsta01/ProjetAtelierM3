@@ -9,19 +9,22 @@ package com.mycompany.projetm3.modeles;
  *
  * @author Utilisateur
  */
-public class Equipement {
+public abstract class Equipement {
 
     private String refEquipement;
     private String dEquipement;
 
     public Equipement() {
     }
-    
-    public Equipement(String refEquipement,
-                      String dEquipement) {
+
+    public Equipement(String refEquipement, String dEquipement) {
         this.refEquipement = refEquipement;
         this.dEquipement = dEquipement;
     }
+
+    // Coût horaire de l'équipement : chaque sous-classe (Machine, Poste) le calcule à sa façon
+    public abstract float getCoutHoraire();
+
     //getter
     public String getRefEquipement() {
         return refEquipement;
@@ -30,6 +33,7 @@ public class Equipement {
     public String getdEquipement() {
         return dEquipement;
     }
+
     //setter
     public void setRefEquipement(String refEquipement) {
         this.refEquipement = refEquipement;
@@ -38,5 +42,4 @@ public class Equipement {
     public void setdEquipement(String dEquipement) {
         this.dEquipement = dEquipement;
     }
-
 }
